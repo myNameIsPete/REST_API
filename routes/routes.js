@@ -1,39 +1,53 @@
 const router = require('express').Router();
-const getAllInductees = require('./getAllMembers');
-const getAllInSport = require('./getAllInSport');
-const getInducteesByYear = require('./getAllMembersByYear');
-const getAllInSportByYear = require('./getAllInSportByYear');
+const {
+  getAll,
+  getAllInductees,
+  getAllHonourees,
+  getAllTeams,
+  getAllByYear,
+  getAllInducteesByYear,
+  getAllHonoureesByYear,
+  getAllTeamsByYear,
+  getAllInSport,
+  getAllInducteesInSport,
+  getAllHonoureesInSport,
+  getAllTeamsInSport
+} = require('./../controllers/');
+
+// Get everything is specific categories
+router.get('/all', getAll);
+router.get('/all/inductees', getAllInductees);
+router.get('/all/honourees', getAllHonourees);
+router.get('/all/teams', getAllTeams);
+
+// Get everything but then order by year
+router.get('/all/byYear', getAllByYear);
+router.get('/all/inductees/byYear', getAllInducteesByYear);
+router.get('/all/honourees/byYear', getAllHonoureesByYear);
+router.get('/all/teams/byYear', getAllTeamsByYear);
+
+// Get everyting in specific sport
+router.get('/all/in/:sport', getAllInSport);
+router.get('/all/inductees/in/:sport', getAllInducteesInSport);
+router.get('/all/honourees/in/:sport', getAllHonoureesInSport);
+router.get('/all/teams/in/:sport', getAllTeamsInSport);
 
 /*
 
-/members
-/inductees
-/teams
+/all/inductees/in/:sport
+/all/honourees/in/:sport
+/all/teams/in/:sport
 
-/members/byYear
-/inductees/byYear
-/teams/byYear
-
-/members/in/:sport
-/inductees/in/:sport
-/teams/in/:sport
-
-/members/in/:sport/byYear
-/inductees/in/:sport/byYear
-/teams/in/:sport/byYear
+/all/inductees/in/:sport/byYear
+/all/honourees/in/:sport/byYear
+/all/teams/in/:sport/byYear
 
 /id/:id
 
-/sports/
+/all/in/:query/
 
 /search/:query
 
 */
-
-router.get('/inductees', getInductees);
-router.get('/inductees/byYear', getInducteesByYear);
-
-router.get('/in/:sport', getAllInSport);
-router.get('/in/:sport/byYear', getAllInSportByYear);
 
 module.exports = router;

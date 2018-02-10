@@ -1,6 +1,6 @@
 const members = require('../models/member');
 
-const getAllMembers = async (req, res, next) => {
+const getAllInductees = async (req, res, next) => {
   try {
     res.json(await members.find());
   } catch (err) {
@@ -8,4 +8,4 @@ const getAllMembers = async (req, res, next) => {
   }
 };
 
-module.exports = getAllMembers;
+module.exports = getAllInductees;
