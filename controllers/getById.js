@@ -1,9 +1,9 @@
 const members = require('../models/member');
 
 module.exports = {
-  getAll: async (req, res, next) => {
+  getById: async (req, res, next) => {
     try {
-      res.json(await members.find());
+      res.json(await members.findById({ _id: req.params.id }));
     } catch (err) {
       next(err);
     }

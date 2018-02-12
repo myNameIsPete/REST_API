@@ -1,9 +1,9 @@
 const members = require('../models/member');
 
 module.exports = {
-  getAll: async (req, res, next) => {
+  getAllHonourees: async (req, res, next) => {
     try {
-      res.json(await members.find());
+      res.json(await members.find({ member_type: 'honouree' }));
     } catch (err) {
       next(err);
     }

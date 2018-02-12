@@ -11,7 +11,9 @@ const {
   getAllInSport,
   getAllInducteesInSport,
   getAllHonoureesInSport,
-  getAllTeamsInSport
+  getAllTeamsInSport,
+  getById,
+  search
 } = require('./../controllers/');
 
 // Get everything is specific categories
@@ -32,22 +34,10 @@ router.get('/all/inductees/in/:sport', getAllInducteesInSport);
 router.get('/all/honourees/in/:sport', getAllHonoureesInSport);
 router.get('/all/teams/in/:sport', getAllTeamsInSport);
 
-/*
+// Get member by ID
+router.get('/member/:id', getById);
 
-/all/inductees/in/:sport
-/all/honourees/in/:sport
-/all/teams/in/:sport
-
-/all/inductees/in/:sport/byYear
-/all/honourees/in/:sport/byYear
-/all/teams/in/:sport/byYear
-
-/id/:id
-
-/all/in/:query/
-
-/search/:query
-
-*/
+// Search for all members with "string" in name
+router.get('/search/:q', search);
 
 module.exports = router;
