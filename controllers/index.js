@@ -13,6 +13,7 @@ const { getAllHonoureesInSport } = require('./getAllHonoureesInSport');
 const { getAllTeamsInSport } = require('./getAllTeamsInSport');
 const { getById } = require('./getById');
 const { search } = require('./search');
+const { createMember } = require('./createMember');
 
 module.exports = {
   getAll,
@@ -28,5 +29,6 @@ module.exports = {
   getAllHonoureesInSport,
   getAllTeamsInSport,
   getById,
-  search
+  search,
+  createMember
 };

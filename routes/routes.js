@@ -13,7 +13,8 @@ const {
   getAllHonoureesInSport,
   getAllTeamsInSport,
   getById,
-  search
+  search,
+  createMember
 } = require('./../controllers/');
 
 // Get everything is specific categories
@@ -39,5 +40,8 @@ router.get('/member/:id', getById);
 
 // Search for all members with "string" in name
 router.get('/search/:q', search);
+
+// Create a new member
+router.post('/new_member', createMember);
 
 module.exports = router;
